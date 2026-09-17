@@ -16,13 +16,16 @@ export async function POST(request: Request) {
     if (image.size > MAX_FILE_SIZE) return NextResponse.json({ error: "Keep screenshots under 5 MB." }, { status: 413 });
 
     const base64 = Buffer.from(await image.arrayBuffer()).toString("base64");
+    const targetLanguageRules = language === "hindi"
+      ? "Translate it into natural, conversational Hindi in Devanagari. Prefer what a Hindi speaker would actually say over a word-for-word translation."
+      : "Translate it into natural, conversational French. Preserve French accents and apostrophes, and prefer idiomatic speech over a word-for-word translation.";
     const response = await getOpenAI().responses.create({
       model: MODEL,
-      instructions: `Read the visible ${language} subtitle in the image. Return only the primary spoken subtitle, not logos, timestamps, translations, or interface text. Preserve native script, accents, apostrophes, and punctuation. If no clear ${language} subtitle is visible, return an empty extractedText and a short confidenceWarning.`,
+      instructions: `Read the primary visible English subtitle in the image, ignoring logos, timestamps, captions, and interface text. ${targetLanguageRules} Return that ${language} translation in extractedText so the learner can edit and confirm it before creating a lesson. If the English line is ambiguous, still provide the most likely translation and briefly explain the uncertainty in confidenceWarning. If no clear English subtitle is visible, return an empty extractedText and a short confidenceWarning.`,
       input: [{
         role: "user",
         content: [
-          { type: "input_text", text: "Extract the subtitle phrase for the user to confirm." },
+          { type: "input_text", text: `Turn the visible English subtitle into a natural ${language} phrase for the user to confirm.` },
           { type: "input_image", image_url: `data:${image.type};base64,${base64}`, detail: "high" },
         ],
       }],

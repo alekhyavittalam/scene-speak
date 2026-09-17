@@ -253,10 +253,10 @@ function LearnView(props: LearnProps) {
 
         <div className="rule" />
         <div className="input-section">
-          <div className="input-title"><span className="step">02</span><div><h2>Add the line</h2><p>Type it in or pull it from a screenshot.</p></div></div>
+          <div className="input-title"><span className="step">02</span><div><h2>Add the line</h2><p>Type it in {languageMeta[language].label}, or translate an English subtitle screenshot.</p></div></div>
           <div className="mode-tabs" role="tablist">
-            <button role="tab" aria-selected={inputMode === "text"} className={inputMode === "text" ? "active" : ""} onClick={() => props.onMode("text")}><MessageCircle size={17} /> Type a phrase</button>
-            <button role="tab" aria-selected={inputMode === "image"} className={inputMode === "image" ? "active" : ""} onClick={() => props.onMode("image")}><ImageIcon size={17} /> Upload screenshot</button>
+            <button role="tab" aria-selected={inputMode === "text"} className={inputMode === "text" ? "active" : ""} onClick={() => props.onMode("text")}><MessageCircle size={17} /> Type {languageMeta[language].label}</button>
+            <button role="tab" aria-selected={inputMode === "image"} className={inputMode === "image" ? "active" : ""} onClick={() => props.onMode("image")}><ImageIcon size={17} /> English screenshot</button>
           </div>
 
           {inputMode === "text" ? (
@@ -266,7 +266,7 @@ function LearnView(props: LearnProps) {
             </div>
           ) : extracted ? (
             <div className="extracted-panel">
-              <div className="extract-status"><span><Check size={15} /></span><div><strong>Subtitle found</strong><small>Check the text before creating your lesson.</small></div><button onClick={props.onReset} aria-label="Remove screenshot"><X size={18} /></button></div>
+              <div className="extract-status"><span><Check size={15} /></span><div><strong>{languageMeta[language].label} version ready</strong><small>Edit or confirm the translation before creating your lesson.</small></div><button onClick={props.onReset} aria-label="Remove screenshot"><X size={18} /></button></div>
               <div className="phrase-box confirmed"><textarea value={phrase} maxLength={200} onChange={(event) => props.onPhrase(event.target.value)} aria-label="Extracted subtitle" /><span>{phrase.length} / 200</span></div>
               {warning && <p className="warning">{warning}</p>}
             </div>
@@ -274,8 +274,8 @@ function LearnView(props: LearnProps) {
             <div className={`drop-zone ${loading ? "loading" : ""}`} onDragOver={(event) => event.preventDefault()} onDrop={props.onDrop}>
               <input ref={props.fileInput} type="file" accept="image/jpeg,image/png,image/webp" onChange={props.onFile} hidden />
               <span className="upload-icon">{loading ? <span className="spinner" /> : <Upload size={24} />}</span>
-              <strong>{loading ? "Reading the subtitle…" : "Drop a subtitle screenshot here"}</strong>
-              <p>{imageName || "JPG, PNG, or WebP · up to 5 MB"}</p>
+              <strong>{loading ? `Translating into ${languageMeta[language].label}…` : "Drop an English subtitle screenshot here"}</strong>
+              <p>{imageName || `We'll turn it into natural ${languageMeta[language].label} · up to 5 MB`}</p>
               {!loading && <button onClick={props.onBrowse}>Choose an image</button>}
             </div>
           )}
@@ -294,7 +294,7 @@ function LearnView(props: LearnProps) {
       <section className="how-it-works wrap">
         <div><small>HOW IT WORKS</small><h2>From subtitle to <em>real understanding.</em></h2></div>
         <div className="steps-grid">
-          <article><span><Clapperboard /></span><b>01</b><h3>Bring a line</h3><p>Type a phrase or upload the subtitle you just saw.</p></article>
+          <article><span><Clapperboard /></span><b>01</b><h3>Bring a line</h3><p>Type a phrase or upload an English subtitle you just saw.</p></article>
           <article><span><Languages /></span><b>02</b><h3>See beyond translation</h3><p>Learn its tone, context, vocabulary, and cultural weight.</p></article>
           <article><span><Library /></span><b>03</b><h3>Make it stick</h3><p>Save the phrase and test yourself with a focused review.</p></article>
         </div>
