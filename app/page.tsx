@@ -15,7 +15,7 @@ type View = "learn" | "lesson" | "saved" | "quiz";
 type InputMode = "text" | "image";
 
 const languageMeta: Record<Language, { label: string; native: string; flag: string; placeholder: string }> = {
-  hindi: { label: "Hindi", native: "हिन्दी", flag: "हि", placeholder: "Type a Hindi phrase you heard…" },
+  hindi: { label: "Hindi", native: "Hindi (A–Z)", flag: "Hi", placeholder: "Type Hindi using English letters…" },
   french: { label: "French", native: "Français", flag: "Fr", placeholder: "Type a French phrase you heard…" },
 };
 
@@ -313,7 +313,7 @@ function LessonView({ lesson, isSaved, feedback, onBack, onSave, onFeedback, onR
       <section className="lesson-hero">
         <div className="lesson-kicker"><span>{lesson.language === "hindi" ? "हि" : "Fr"}</span>{languageMeta[lesson.language].label} · Scene lesson</div>
         <blockquote>“{lesson.original}”</blockquote>
-        <div className="pronunciation"><Volume2 size={17} /><span><small>{lesson.pronunciationLabel}</small>{lesson.pronunciation}</span></div>
+        <div className="pronunciation"><Volume2 size={17} /><span><small>{lesson.language === "hindi" ? "How it sounds" : lesson.pronunciationLabel}</small>{lesson.pronunciation}</span></div>
         <button className={`save-button ${isSaved ? "saved" : ""}`} onClick={onSave}>{isSaved ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}{isSaved ? "Saved" : "Save phrase"}</button>
       </section>
 

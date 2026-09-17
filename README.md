@@ -1,6 +1,6 @@
 # SceneSpeak
 
-SceneSpeak turns short Hindi and French movie phrases into practical lessons about natural meaning, tone, safe usage, and vocabulary. Users can type a target-language phrase or upload an English subtitle screenshot to receive a natural Hindi or French version before creating the lesson.
+SceneSpeak turns short Hindi and French movie phrases into practical lessons about natural meaning, tone, safe usage, and vocabulary. Users can type a target-language phrase or upload an English subtitle screenshot to receive a natural Hindi or French version before creating the lesson. Hindi is presented in learner-friendly Latin letters for people who cannot yet read Devanagari.
 
 ## Run locally
 
@@ -34,7 +34,7 @@ npm run build
 
 ## Product boundaries
 
-- Hindi and French only; explanations are in English.
+- Hindi and French only; explanations are in English, and Hindi phrases use Romanized Latin spelling.
 - One phrase of at most 200 characters.
 - English-subtitle JPG, PNG, and WebP screenshots up to 5 MB; the selected learning language determines the translated output.
 - Saved lessons and quiz history remain in the current browser.

@@ -4,7 +4,7 @@ import { lessonSchema } from "@/lib/schemas";
 
 describe("lesson schema", () => {
   it("accepts the complete Hindi fixture", () => {
-    expect(lessonSchema.parse(sampleLessons.hindi).pronunciationLabel).toBe("Transliteration");
+    expect(lessonSchema.parse(sampleLessons.hindi).pronunciationLabel).toBe("Pronunciation");
   });
 
   it("accepts the complete French fixture with accents", () => {

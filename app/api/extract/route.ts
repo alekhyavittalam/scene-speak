@@ -17,11 +17,11 @@ export async function POST(request: Request) {
 
     const base64 = Buffer.from(await image.arrayBuffer()).toString("base64");
     const targetLanguageRules = language === "hindi"
-      ? "Translate it into natural, conversational Hindi in Devanagari. Prefer what a Hindi speaker would actually say over a word-for-word translation."
+      ? "Translate it into natural, conversational Hindi written only in easy-to-read Latin letters (Romanized Hindi), not Devanagari. For example: 'Tumse na ho payega.' Prefer what a Hindi speaker would actually say over a word-for-word translation."
       : "Translate it into natural, conversational French. Preserve French accents and apostrophes, and prefer idiomatic speech over a word-for-word translation.";
     const response = await getOpenAI().responses.create({
       model: MODEL,
-      instructions: `Read the primary visible English subtitle in the image, ignoring logos, timestamps, captions, and interface text. ${targetLanguageRules} Return that ${language} translation in extractedText so the learner can edit and confirm it before creating a lesson. If the English line is ambiguous, still provide the most likely translation and briefly explain the uncertainty in confidenceWarning. If no clear English subtitle is visible, return an empty extractedText and a short confidenceWarning.`,
+      instructions: `Read the primary visible English subtitle in the image, ignoring logos, timestamps, captions, and interface text. ${targetLanguageRules} Return only that learner-readable ${language} translation in extractedText so the learner can edit and confirm it before creating a lesson. If the English line is ambiguous, still provide the most likely translation and briefly explain the uncertainty in confidenceWarning. If no clear English subtitle is visible, return an empty extractedText and a short confidenceWarning.`,
       input: [{
         role: "user",
         content: [

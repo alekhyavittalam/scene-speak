@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   try {
     const input = lessonRequestSchema.parse(await request.json());
     const languageRules = input.language === "hindi"
-      ? "Preserve or restore Devanagari when appropriate. pronunciationLabel must be Transliteration and pronunciation must be readable Latin-script transliteration."
+      ? "The learner cannot read Devanagari. Use only learner-friendly Romanized Hindi in every Hindi field, including vocabulary and the similar expression; do not output Devanagari. pronunciationLabel must be Pronunciation, and pronunciation must be a concise English-friendly sound guide with helpful syllable breaks or stress (for example, 'TOOM-say naa ho paa-YAY-gaa')."
       : "Preserve French accents and apostrophes. pronunciationLabel must be Pronunciation and pronunciation must be concise English-friendly guidance without IPA.";
 
     const response = await getOpenAI().responses.create({

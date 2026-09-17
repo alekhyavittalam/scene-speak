@@ -4,21 +4,21 @@ export const sampleLessons: Record<Language, Lesson> = {
   hindi: {
     id: "sample-hindi-tumse-na-ho-payega",
     language: "hindi",
-    original: "तुमसे ना हो पाएगा।",
+    original: "Tumse na ho payega.",
     naturalMeaning: "You're not going to be able to do this.",
     literalTranslation: "This will not be possible through you.",
-    pronunciation: "Tum-se na ho paa-ye-ga",
-    pronunciationLabel: "Transliteration",
+    pronunciation: "TOOM-say naa ho paa-YAY-gaa",
+    pronunciationLabel: "Pronunciation",
     toneLabels: ["Teasing", "Dismissive", "Context-sensitive"],
     toneExplanation: "Often delivered as playful trash talk between friends, but the same words can sound belittling when said seriously or by someone in authority.",
     whenToUse: "Joking with a close friend after they confidently attempt something they are famously bad at—especially when your tone makes the affection obvious.",
     whenNotToUse: "Avoid it when someone is genuinely struggling, asking for encouragement, or when you do not share an easy, teasing relationship.",
     vocabulary: [
-      { term: "तुमसे (tumse)", meaning: "from you / by you; implies your ability to do something" },
-      { term: "ना (na)", meaning: "not; an informal spoken alternative to नहीं here" },
-      { term: "हो पाएगा (ho payega)", meaning: "will be possible / will manage to happen" },
+      { term: "tumse", meaning: "from you / by you; implies your ability to do something" },
+      { term: "na", meaning: "not; an informal spoken alternative to nahi here" },
+      { term: "ho payega", meaning: "will be possible / will manage to happen" },
     ],
-    similarExpression: { phrase: "रहने दो (Rehne do)", meaning: "Leave it / don't bother", distinction: "This stops the attempt; it does not directly say the person is incapable." },
+    similarExpression: { phrase: "Rehne do", meaning: "Leave it / don't bother", distinction: "This stops the attempt; it does not directly say the person is incapable." },
     quiz: [
       { id: "h-meaning", type: "meaning", prompt: "What does the speaker naturally mean?", options: ["You probably can't pull this off.", "You should try this later.", "You already did this well."], correctIndex: 0, explanation: "The phrase doubts the other person's ability, often playfully." },
       { id: "h-tone", type: "tone", prompt: "Which tone best fits a friendly use?", options: ["A formal compliment", "Playful, dismissive teasing", "A sincere apology"], correctIndex: 1, explanation: "Between close friends, it commonly works as teasing trash talk." },
@@ -53,6 +53,6 @@ export const sampleLessons: Record<Language, Lesson> = {
 };
 
 export const samplePhrase: Record<Language, string> = {
-  hindi: "तुमसे ना हो पाएगा।",
+  hindi: "Tumse na ho payega.",
   french: "Laisse tomber.",
 };
