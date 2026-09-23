@@ -2,6 +2,17 @@
 
 SceneSpeak turns short Hindi and French movie phrases into practical lessons about natural meaning, tone, safe usage, and vocabulary. Users can type a target-language phrase or upload an English subtitle screenshot to receive a natural Hindi or French version before creating the lesson. Hindi is presented in learner-friendly Latin letters for people who cannot yet read Devanagari.
 
+## Live demo
+
+**[Try SceneSpeak →](https://vercel-one-omega-10.vercel.app)**
+
+## How it works
+
+1. Choose Hindi or French.
+2. Type a phrase or upload a screenshot containing an English subtitle.
+3. Get a practical lesson covering natural phrasing, pronunciation, tone, vocabulary, and safe real-world usage.
+4. Save the phrase locally and review it with a three-question quiz.
+
 ## Run locally
 
 This project is pinned to Next.js 13.5 so it works with the workspace's Node 18 runtime.
