@@ -4,7 +4,7 @@ SceneSpeak turns short Hindi and French movie phrases into practical lessons abo
 
 ## Live demo
 
-**[Try SceneSpeak →](https://vercel-one-omega-10.vercel.app)**
+**[Try SceneSpeak →](https://scene-speak-app.vercel.app)**
 
 ## How it works
 
